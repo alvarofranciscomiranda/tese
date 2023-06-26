@@ -3,6 +3,15 @@ from sklearn import metrics
 import matplotlib.pyplot as plt
 import seaborn as sns
 import csv
+
+from src.naive_bayes import run_naive_bayes
+from src.decision_tree import run_decision_tree
+from src.nearest_neighbor import run_nearest_neighbor
+from src.svm import run_svm
+from src.neural_network import run_neural_network
+from src.logistic_regression import run_logistic_regression
+from src.random_forest import run_random_forest
+
 sns.set_style("darkgrid")
 
 def read_csv(filename):
@@ -41,26 +50,23 @@ def run_models(filename):
 
     x_train, x_test, y_test, y_train = get_train_and_test(x,y,test_size)
     
-    from src.logistic_regression import run_logistic_regression
     
     run_logistic_regression(x,y,test_size,x_train, x_test, y_test, y_train)      
  
-    from src.neural_network import run_neural_network
 
     run_neural_network(x_train, x_test, y_test, y_train)      
 
-    from src.svm import run_svm
 
     run_svm(x_train, x_test, y_test, y_train)      
 
-    from src.nearest_neighbor import run_nearest_neighbor
 
     run_nearest_neighbor(x_train, x_test, y_test, y_train) 
 
-    from src.decision_tree import run_decision_tree
 
     run_decision_tree(x_train, x_test, y_test, y_train)
     
-    from src.naive_bayes import run_naive_bayes
 
-    run_naive_bayes(x_train, x_test, y_test, y_train)  
+    run_naive_bayes(x_train, x_test, y_test, y_train)
+    
+    
+    run_random_forest(x_train, x_test, y_test, y_train)  

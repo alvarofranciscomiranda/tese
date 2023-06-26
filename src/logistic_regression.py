@@ -1,6 +1,6 @@
 from sklearn.linear_model import LogisticRegressionCV
 from sklearn import metrics
-from src.models import get_train_and_test
+#from src.models import get_train_and_test
 
 def run_logistic_regression(x,y,test_size, x_train, x_test, y_test, y_train):
     #Logistic Regression
