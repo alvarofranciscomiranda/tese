@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import csv
 
+from src.train_and_test import get_train_and_test
 from src.naive_bayes import run_naive_bayes
 from src.decision_tree import run_decision_tree
 from src.nearest_neighbor import run_nearest_neighbor
@@ -28,15 +29,6 @@ def read_csv(filename):
         
         return pd.DataFrame(data)
 
-def get_train_and_test(x,y,size):
-    
-    from sklearn.model_selection import train_test_split
-
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = size)  #partition in training and test set
-    
-    return x_train, x_test, y_test, y_train
-
-
 def run_models(filename):
             
     #read data in csv
@@ -44,7 +36,7 @@ def run_models(filename):
     data = pd.read_csv(filename, encoding = "utf-8", delimiter = ",")
 
     
-    x = data[['P1','P2','P3','P4','P4.1','P5','P5.1','P5.2','P6','P7','P8','P9','P10','P11','P12','P13','P14','P15','P16','P17','P18','P19','P20','P21','P22','P23','P24','P25','P26','P27','P28','P29','P30','P31','P32','P33','P34','P35','P36','P37','P38','P39','P40']].values  #selección de variables de entrada
+    x = data[['P1','P2','P3','P4','P4.1','P5','P5.1','P5.2','P6','P7','P8','P9','P10','P11','P12','P13','P14','P15','P16','P17','P18','P19','P20','P21','P22','P23','P24','P25','P26','P27','P28','P29','P30','P31','P32','P33','P34','P35','P36','P37','P38','P39','P40']].values
     y = data['Resultado']  #select target
     test_size = 0.2
 
