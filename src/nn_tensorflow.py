@@ -31,7 +31,7 @@ def run_nn_tensorflow():
         tf.keras.layers.Dense(units=num_classes, activation='softmax')
     ])
 
-    model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
     num_epochs = 10
     batch_size = 32
@@ -52,7 +52,7 @@ def run_nn_tensorflow():
             y_pred = np.argmax(y_pred_probs, axis=1)
 
             # Calculate precision, recall, and F1 score
-            precision = precision_score(y_test, y_pred, average='macro')
+            precision = precision_score(y_test, y_pred, average='macro', zero_division=0)
             recall = recall_score(y_test, y_pred, average='macro')
             f1 = f1_score(y_test, y_pred, average='macro')
 

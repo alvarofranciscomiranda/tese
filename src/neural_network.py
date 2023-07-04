@@ -22,7 +22,7 @@ def run_neural_network(x_train, x_test, y_test, y_train):
 
     # Calculate metrics
     accuracy = accuracy_score(y_test, y_pred)
-    precision = precision_score(y_test, y_pred, average='macro')
+    precision = precision_score(y_test, y_pred, average='macro', zero_division=0)
     recall = recall_score(y_test, y_pred, average='macro')
     f1 = f1_score(y_test, y_pred, average='macro')
 

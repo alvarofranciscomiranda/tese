@@ -58,9 +58,6 @@ def run_models(filename):
     #run_logistic_regression(x,y,test_size, x_train, x_test, y_test, y_train)      
 
 
-    #run_neural_network(x_train, x_test, y_test, y_train)      
-
-
     #run_svm(x_train, x_test, y_test, y_train)
 
 
@@ -75,6 +72,8 @@ def run_models(filename):
     
     #run_random_forest(x_train, x_test, y_test, y_train)  
     
-    run_nn_pytorch()
+    #run_nn_pytorch()
     
     #run_nn_tensorflow()
+    
+    run_neural_network(x_train, x_test, y_test, y_train)      
