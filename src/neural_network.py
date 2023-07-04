@@ -11,7 +11,7 @@ def run_neural_network(x_train, x_test, y_test, y_train):
     y_pred = mlp.predict(x_test)  #prediction
 
     from sklearn.metrics import classification_report
-    print(classification_report(y_test, y_pred))  #print classifier report
+    print(classification_report(y_test, y_pred, zero_division=0))  #print classifier report
 
     #Accuracy NN
     from sklearn.metrics import accuracy_score

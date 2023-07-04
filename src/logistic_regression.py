@@ -7,7 +7,7 @@ def run_logistic_regression(x,y,test_size, x_train, x_test, y_test, y_train):
     valid = True
     while valid:
         try:  
-            model = LogisticRegressionCV(cv=10, random_state=0, max_iter=5000) #10 fold cross validation
+            model = LogisticRegressionCV(cv=5, multi_class="multinomial", random_state=0, max_iter=5000) #10 fold cross validation
             model.fit(x_train, y_train)
             y_pred = model.predict(x_test)
             print("Logistic Regression Precision: ", format(model.score(x_train, y_train)))
