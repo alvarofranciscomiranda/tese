@@ -7,10 +7,8 @@ from src.run_live import run_live
 
 if __name__ == "__main__":
     
-    #filename = 'resources/dataset_seconds.csv'
-    filename = 'resources/dataset_repeated.csv'
+    filename = 'resources/dataset_seconds.csv'
+    #filename = 'resources/dataset_repeated.csv'
     
-    #train_and_evaluate_neural_network(filename)
-    
-    #run_models(filename)
+    run_models(filename)
     #run_live()

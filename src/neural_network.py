@@ -3,9 +3,15 @@ from sklearn import metrics
 def run_neural_network(x_train, x_test, y_test, y_train):
     
     from sklearn.neural_network import MLPClassifier
-    mlp = MLPClassifier(hidden_layer_sizes=(10), max_iter=5000, alpha=0.0001,
-                        solver='adam',activation= 'logistic', random_state=10,
-                        tol=0.000000001)   #neural nets classifier
+    #mlp = MLPClassifier(hidden_layer_sizes=(10), max_iter=5000, alpha=0.0001,
+                        #solver='adam',activation= 'logistic', random_state=10,
+                        #tol=0.000000001)   #neural nets classifier
+                        
+    # Instantiate the MLPClassifier model
+    mlp = MLPClassifier(hidden_layer_sizes=(64,), activation='relu', solver='adam', random_state=42)
+
+# Note: You can adjust the hyperparameters, such as the hidden_layer_sizes, activation function, and solver, based on your specific requirements.
+
 
     mlp.fit(x_train, y_train)   #network training
     y_pred = mlp.predict(x_test)  #prediction

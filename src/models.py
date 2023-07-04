@@ -3,6 +3,8 @@ from sklearn import metrics
 import matplotlib.pyplot as plt
 import seaborn as sns
 import csv
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
 
 from src.train_and_test import get_train_and_test
 from src.naive_bayes import run_naive_bayes
@@ -38,13 +40,19 @@ def run_models(filename):
 
     
     x = data[['P1','P2','P3','P4','P4.1','P5','P5.1','P5.2','P6','P7','P8','P9','P10','P11','P12','P13','P14','P15','P16','P17','P18','P19','P20','P21','P22','P23','P24','P25','P26','P27','P28','P29','P30','P31','P32','P33','P34','P35','P36','P37','P38','P39','P40']].values
-    y = data['Resultado']  #select target
+    y = data['Resultado'].values  #select target
     test_size = 0.2
 
-    x_train, x_test, y_test, y_train = get_train_and_test(x,y,test_size)
+
+    # Preprocess the data using scikit-learn
+    scaler = StandardScaler()
+    x = scaler.fit_transform(x)
+    
+    # Split the data into training and test sets
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
     
     
-    run_logistic_regression(x,y,test_size,x_train, x_test, y_test, y_train)      
+    #run_logistic_regression(x,y,test_size,x_train, x_test, y_test, y_train)      
  
 
     run_neural_network(x_train, x_test, y_test, y_train)      
