@@ -6,6 +6,7 @@ import csv
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
+
 from src.train_and_test import get_train_and_test
 from src.naive_bayes import run_naive_bayes
 from src.decision_tree import run_decision_tree
@@ -14,6 +15,9 @@ from src.svm import run_svm
 from src.neural_network import run_neural_network
 from src.logistic_regression import run_logistic_regression
 from src.random_forest import run_random_forest
+from src.nn_pytorch import run_nn_pytorch
+from src.nn_tensorflow import run_nn_tensorflow
+
 
 
 sns.set_style("darkgrid")
@@ -49,25 +53,28 @@ def run_models(filename):
     x = scaler.fit_transform(x)
     
     # Split the data into training and test sets
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+    x_train, x_test, y_train, y_test =  train_test_split(x, y, test_size=0.2)
+    
+    #run_logistic_regression(x,y,test_size, x_train, x_test, y_test, y_train)      
+
+
+    #run_neural_network(x_train, x_test, y_test, y_train)      
+
+
+    #run_svm(x_train, x_test, y_test, y_train)
+
+
+    #run_nearest_neighbor(x_train, x_test, y_test, y_train) 
+
+
+    #run_decision_tree(x_train, x_test, y_test, y_train)
+    
+
+    #run_naive_bayes(x_train, x_test, y_test, y_train)
     
     
-    #run_logistic_regression(x,y,test_size,x_train, x_test, y_test, y_train)      
- 
-
-    run_neural_network(x_train, x_test, y_test, y_train)      
-
-
-    run_svm(x_train, x_test, y_test, y_train)      
-
-
-    run_nearest_neighbor(x_train, x_test, y_test, y_train) 
-
-
-    run_decision_tree(x_train, x_test, y_test, y_train)
+    #run_random_forest(x_train, x_test, y_test, y_train)  
     
-
-    run_naive_bayes(x_train, x_test, y_test, y_train)
+    run_nn_pytorch()
     
-    
-    run_random_forest(x_train, x_test, y_test, y_train)  
+    #run_nn_tensorflow()
