@@ -7,8 +7,13 @@ from sklearn.model_selection import train_test_split, KFold
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+import time
+
 
 def run_nn_pytorch():
+    start_time = time.time()  # Record the start time
+
+    
     filename = 'resources/dataset_seconds.csv'
 
     data = pd.read_csv(filename, encoding = "utf-8", delimiter = ",")
@@ -116,3 +121,7 @@ def run_nn_pytorch():
     print(f"Average Precision: {avg_precision:.4f}")
     print(f"Average Recall: {avg_recall:.4f}")
     print(f"Average F1 Score: {avg_f1:.4f}")
+    
+    end_time = time.time()  # Record the end time
+    execution_time = end_time - start_time  # Calculate the execution time
+    print("Execution Time: {:.2f} seconds".format(execution_time))

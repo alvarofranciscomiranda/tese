@@ -4,8 +4,12 @@ from sklearn.model_selection import cross_val_score, KFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import precision_score, recall_score, f1_score
 import pandas as pd
+import time
+
 
 def run_nn_tensorflow():
+    start_time = time.time()  # Record the start time
+    
     filename = 'resources/dataset_seconds.csv'
 
     data = pd.read_csv(filename, encoding = "utf-8", delimiter = ",")
@@ -23,23 +27,25 @@ def run_nn_tensorflow():
 
     # Instantiate the neural network model
     input_size = X.shape[1]
-    hidden_size = 64
+    hidden_size = 196
     num_classes = len(set(y))
 
     model = tf.keras.models.Sequential([
         tf.keras.layers.Dense(units=hidden_size, activation='relu', input_shape=(input_size,)),
+        tf.keras.layers.Dense(units=128, activation='relu'),  # Additional hidden layer
         tf.keras.layers.Dense(units=num_classes, activation='softmax')
+        
     ])
 
-    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    model.compile(optimizer=tf.keras.optimizers.RMSprop(learning_rate=0.01), loss='SparseCategoricalCrossentropy', metrics=['accuracy'])
 
     num_epochs = 10
-    batch_size = 32
+    batch_size = 72
 
     # Define a function to evaluate the model
     def evaluate_model(X, y):
         scores = []
-        kf = KFold(n_splits=5, shuffle=True, random_state=42)  # 5-fold cross-validation
+        kf = KFold(n_splits=5, shuffle=True, random_state=72)  # 5-fold cross-validation
         for train_index, test_index in kf.split(X):
             X_train, X_test = X[train_index], X[test_index]
             y_train, y_test = y[train_index], y[test_index]
@@ -72,3 +78,7 @@ def run_nn_tensorflow():
     print(f'Precision: {precision_avg:.4f}')
     print(f'Recall: {recall_avg:.4f}')
     print(f'F1 Score: {f1_avg:.4f}')
+    
+    end_time = time.time()  # Record the end time
+    execution_time = end_time - start_time  # Calculate the execution time
+    print("Execution Time: {:.2f} seconds".format(execution_time))

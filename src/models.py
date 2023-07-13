@@ -49,31 +49,34 @@ def run_models(filename):
 
 
     # Preprocess the data using scikit-learn
-    scaler = StandardScaler()
-    x = scaler.fit_transform(x)
+    #scaler = StandardScaler()
+    #x = scaler.fit_transform(x)
     
     # Split the data into training and test sets
     x_train, x_test, y_train, y_test =  train_test_split(x, y, test_size=0.2)
     
-    #run_logistic_regression(x,y,test_size, x_train, x_test, y_test, y_train)      
-
+    #run_logistic_regression(x,y,test_size, x_train, x_test, y_test, y_train)
+    
+    
+    run_decision_tree(x_train, x_test, y_test, y_train)
+    
+        
+    #run_nearest_neighbor(x_train, x_test, y_test, y_train)
+    
+        
+    #run_random_forest(x_train, x_test, y_test, y_train) 
+    
+    
+    #run_naive_bayes(x_train, x_test, y_test, y_train)
+  
 
     #run_svm(x_train, x_test, y_test, y_train)
-
-
-    #run_nearest_neighbor(x_train, x_test, y_test, y_train) 
-
-
-    #run_decision_tree(x_train, x_test, y_test, y_train)
     
+        
+    #run_neural_network(x_train, x_test, y_test, y_train)
 
-    #run_naive_bayes(x_train, x_test, y_test, y_train)
-    
-    
-    #run_random_forest(x_train, x_test, y_test, y_train)  
     
     #run_nn_pytorch()
     
-    #run_nn_tensorflow()
     
-    run_neural_network(x_train, x_test, y_test, y_train)      
+    #run_nn_tensorflow()
