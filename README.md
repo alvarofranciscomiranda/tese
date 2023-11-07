@@ -9,7 +9,7 @@ Follow these steps to set up the project:
 ### 1. Ensure Python 3.8.12 is Installed for example
 Make sure you have Python 3.8.12 installed on your system. You can check your Python version by running:
 
-'python --version'
+```python --version```
 If Python 3.8.12 is not installed, please download and install it from the official Python website: Python Downloads.
 
 ### 2. Install pyenv (Optional)
