@@ -36,7 +36,8 @@ On Linux/macOS:
 
 On Windows:
 
-'venv\Scripts\activate'
+```venv\Scripts\activate```
+
 You should see your terminal prompt change to indicate that the virtual environment is active, for example: (venv).
 
 ### 5. Install Required Packages
