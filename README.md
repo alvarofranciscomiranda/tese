@@ -1,3 +1,4 @@
+#bash
 Project README
 This README provides instructions for setting up and running a Python project. The project assumes you have at least Python 3.3 installed and uses virtual environments for managing dependencies. The project also requires the installation of Python packages specified in the requirements.txt file.
 
