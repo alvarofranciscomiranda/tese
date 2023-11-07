@@ -23,7 +23,7 @@ def run_decision_tree(x_train, x_test, y_test, y_train):
     y_pred = cross_val_predict(model, x_train, y_train, cv=5)  # Get predicted labels
     
     # Print the resulting tree
-    print_decision_tree(model)
+    #print_decision_tree(model)
     
     # Calculate metrics
     accuracy = accuracy_score(y_train, y_pred)
@@ -62,7 +62,7 @@ def decision_tree_live(df, x_test):
     
 def print_decision_tree(model):
     # Export the decision tree to Graphviz format
-    dot_data = export_graphviz(model, out_file=None, filled=True, rounded=True, special_characters=True, max_depth=3,
+    dot_data = export_graphviz(model, out_file=None, filled=True, rounded=True, special_characters=True, max_depth=2,
                                feature_names=['P1','P2','P3','P4','P4.1','P5','P5.1','P5.2','P6','P7','P8','P9','P10','P11','P12','P13','P14','P15','P16','P17','P18','P19','P20','P21','P22','P23','P24','P25','P26','P27','P28','P29','P30','P31','P32','P33','P34','P35','P36','P37','P38','P39','P40'], 
                                class_names = ['1','2','3','4','5','6','7','8','9','10','11','12'])
     graph = graphviz.Source(dot_data)
